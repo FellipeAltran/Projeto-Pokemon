@@ -5,24 +5,45 @@
                 <mat-label>Pokemons</mat-label>
                 <mat-select>
                     <mat-option>None</mat-option>
-                    <mat-option *ngFor="let pokemon of pokemons" [value]="pokemon">{{pokemon}}</mat-option>
+                    <mat-option *ngFor="let tipo of tipos" [value]="tipo">{{tipo}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
 
         <mat-grid-list cols="3" rowHeight="1:1">
-            <mat-grid-tile   *ngFor="let item of pokemon">
-                <mat-card class="example-card">
-                    <mat-card-title-group>
-                      <mat-card-title>{{item.name}}</mat-card-title>
-                      <mat-card-subtitle *ngFor="let type of item.types">{{type.name}}</mat-card-subtitle>
-                      <img mat-card-lg-image src="{{item.sprites.front_default}}">
+            <mat-grid-tile style="display: flex ;" *ngFor="let item of pokemons">
+                <mat-card style="flex: 1; margin: 10px;  background-color: #F4F3F3">
+
+                    <mat-card-title-group style="display: flex; justify-content: center;">
+                        <mat-card-title>{{item.name}}</mat-card-title>
+
                     </mat-card-title-group>
-                    <mat-card-content>
-                      
+                    <mat-card-content
+                        style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                        <img mat-card-lg-image src="{{item.sprites.front_default}}">
+
+                        <div style="justify-content: center; display: flex;">
+                            <div *ngFor="let type of item.types">
+                                <p [ngStyle]="{'background-color': (type.type.name === 'fire') ? 'red' : 
+                                                          ((type.type.name === 'water') ? 'blue' : 
+                                                          ((type.type.name === 'grass') ? '#a4d541' :
+                                                          ((type.type.name === 'flying') ? '#e6bd5a' :
+                                                          ((type.type.name === 'poison') ? '#a44a8b' :
+                                                          ((type.type.name === 'normal') ? '#e6bd62'
+                                                            : null)))))}"
+                                    style="color: white; margin: 0; margin-right: 8px; padding: 2px; border-radius: 20px; min-width: 48px; text-align: center;">
+                                    {{type.type.name}}
+                                </p>
+                            </div>
+                        </div>
+
                     </mat-card-content>
-                  </mat-card>
+
+                </mat-card>
             </mat-grid-tile>
         </mat-grid-list>
+        <div  style="display: flex; justify-content:center; align-items: center;">
+            <button mat-button (click)="chamar()" style="padding: 20px; border-radius: 20px;">Basic</button>
+        </div>
     </div>
 </div>

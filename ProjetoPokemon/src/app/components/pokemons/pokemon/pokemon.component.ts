@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { MatChipsModule } from '@angular/material/chips';
+
 import { PokemonService } from './pokemon.service';
 import { Pokemon } from './pokemon.modal';
 
 @Component({
   selector: 'app-pokemon',
   templateUrl: './pokemon.component.html',
-  styleUrls: ['./pokemon.component.css']
+  styleUrls: ['./pokemon.component.css'],
+
 })
 export class PokemonComponent implements OnInit {
 
-  pokemons: string[] = [
+  tipos: string[] = [
     'Água',
     'Fogo',
     'Grama',
@@ -18,9 +21,8 @@ export class PokemonComponent implements OnInit {
     'Eletricidade'
   ];
 
-  cards = [1, 2, 3, 4, 5, 6];
 
-  pokemon: Array<Pokemon> = [];
+  pokemons: Array<Pokemon> = [];
   img: string = ''
 
   constructor(private service: PokemonService) {
@@ -32,12 +34,13 @@ export class PokemonComponent implements OnInit {
   }
 
   chamar(){
-    this.cards.forEach((value, index) => {
-      this.service.readyById(value.toString()).subscribe((value) => {
-        this.pokemon.push(value)
-        this.cards[index] = index + 6;
-      })
-    })
-  }
+    for (let index = this.pokemons.length; index < this.pokemons.length + 6; index++) {
+      this.service.readyById((index + 1).toString()).subscribe((pokemon) => {
+        this.pokemons[index] = pokemon;
 
+        console.log(this.pokemons)
+      })
+      
+    }
+  }
 }
