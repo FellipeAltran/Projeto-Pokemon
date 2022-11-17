@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+}
+
+.centro {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+}
+
+.box {
+    justify-content: center;
+    width: 55vw;
+    height: 100%;
+}
+
+.filtro {
+    width: 400px;
+    text-decoration: none;
+    margin: 40px;
+    padding: 0;
+}
+
+mat-grid-tile {
+    background: rgb(143, 166, 173);
+    border: 1px solid white;
+}
+
+.mat-grid-tile-content {
+    height: 300px;
+    justify-content: start;
+    align-items: flex-start;
+}
+
+.example-card {
+    height: 90%;
+    width: 90%;
+}

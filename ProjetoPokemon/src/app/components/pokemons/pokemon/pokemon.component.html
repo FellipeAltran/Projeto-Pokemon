@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="box">
+        <div class="centro">
+            <mat-form-field appearance="fill" class="filtro">
+                <mat-label>Pokemons</mat-label>
+                <mat-select>
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let pokemon of pokemons" [value]="pokemon">{{pokemon}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <mat-grid-list cols="3" rowHeight="1:1">
+            <mat-grid-tile   *ngFor="let item of pokemon">
+                <mat-card class="example-card">
+                    <mat-card-title-group>
+                      <mat-card-title>{{item.name}}</mat-card-title>
+                      <mat-card-subtitle *ngFor="let type of item.types">{{type.name}}</mat-card-subtitle>
+                      <img mat-card-lg-image src="{{item.sprites.front_default}}">
+                    </mat-card-title-group>
+                    <mat-card-content>
+                      
+                    </mat-card-content>
+                  </mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>

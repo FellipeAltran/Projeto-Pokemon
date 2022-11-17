@@ -1,0 +1,17 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    background-color: #C31C1C;
+}
+
+.div-logo {
+    display: flex;
+}
+
+.logo {
+    margin: 0;
+    width: 320px;
+    height: 100px;
+}

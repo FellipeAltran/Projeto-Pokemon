@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="box">
+        <div class="centro">
+            <mat-form-field appearance="fill" class="filtro">
+                <mat-label>Pokemons</mat-label>
+                <mat-select>
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let pokemon of pokemons" [value]="pokemon">{{pokemon}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <mat-grid-list cols="3" rowHeight="1:1">
+            <mat-grid-tile *ngFor="let item of cards">
+                <mat-card class="example-card">
+                    <mat-card-title-group>
+                      <mat-card-title>Shiba Inu</mat-card-title>
+                      <mat-card-subtitle>Large</mat-card-subtitle>
+                      <img mat-card-lg-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+                    </mat-card-title-group>
+                    <mat-card-content>
+                        <router-outlet></router-outlet>
+                    </mat-card-content>
+                  </mat-card>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>
