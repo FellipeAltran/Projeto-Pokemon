@@ -13,12 +13,23 @@ import { Pokemon } from './pokemon.modal';
 export class PokemonComponent implements OnInit {
 
   tipos: string[] = [
-    'Água',
-    'Fogo',
-    'Grama',
-    'Veneno',
-    'Ar',
-    'Eletricidade'
+    'water',
+    'grass',
+    'flying',
+    'poison',
+    'normal',
+    'electric',
+    'bug',
+    'ice',
+    'fighting',
+    'ground',
+    'psychic',
+    'rock',
+    'ghost',
+    'dragon',
+    'dark',
+    'steel',
+    'fairy'
   ];
 
 
@@ -33,14 +44,14 @@ export class PokemonComponent implements OnInit {
     this.chamar()
   }
 
-  chamar(){
+  chamar() {
     for (let index = this.pokemons.length; index < this.pokemons.length + 6; index++) {
       this.service.readyById((index + 1).toString()).subscribe((pokemon) => {
         this.pokemons[index] = pokemon;
 
         console.log(this.pokemons)
       })
-      
+
     }
   }
 }

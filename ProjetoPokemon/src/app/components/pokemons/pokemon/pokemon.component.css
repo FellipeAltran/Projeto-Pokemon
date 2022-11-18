@@ -15,7 +15,7 @@
 
 .box {
     justify-content: center;
-    width: 55vw;
+    min-width: 55vw;
     height: 100%;
 }
 
@@ -30,8 +30,8 @@ mat-grid-tile {
     background: #D7D6D6;
 } */
 
-.mat-grid-tile-content {
-    height: 300px;
+/* .mat-grid-tile-content {
+    min-height: 250px;
     justify-content: start;
     align-items: flex-start;
-}
+} */
