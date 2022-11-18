@@ -3,15 +3,17 @@
         <div class="centro">
             <mat-form-field appearance="fill" class="filtro">
                 <mat-label>Pokemons</mat-label>
-                <mat-select>
+                <mat-select [(ngModel)]="selectedValue" name="food" (selectionChange)="filter()">
                     <mat-option>none</mat-option>
                     <mat-option *ngFor="let tipo of tipos" [value]="tipo">{{ tipo }}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
 
+        <h1>{{selectedValue}}</h1>
+
         <mat-grid-list cols="3" rowHeight="1:1">
-            <mat-grid-tile style="display: flex;" *ngFor="let item of pokemons">
+            <mat-grid-tile style="display: flex;" *ngFor="let item of filterPokemons">
                 <mat-card
                     style="flex: 1; margin-right: 5px; margin-left: 5px; background-color: #F4F3F3; height: 80%; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 30vh;">
                         <mat-card-title-group style="display: flex; justify-content: center;">

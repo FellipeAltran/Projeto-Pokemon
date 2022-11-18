@@ -14,14 +14,18 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PokemonComponent } from './components/pokemons/pokemon/pokemon.component';
 import { BodyComponent } from './components/template/body/body.component';
+import { FooterComponent } from './components/template/footer/footer.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
+    FormsModule,
     MatListModule,
     MatChipsModule,
     BrowserModule,
@@ -36,13 +40,15 @@ import { BodyComponent } from './components/template/body/body.component';
     HttpClientModule,
     MatFormFieldModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatIconModule 
   ],
   declarations: [
     AppComponent,
     HeaderComponent,
     BodyComponent,
-    PokemonComponent
+    PokemonComponent,
+    FooterComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
