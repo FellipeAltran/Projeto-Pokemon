@@ -13,7 +13,7 @@
         <mat-grid-list cols="3" rowHeight="1:1">
             <mat-grid-tile style="display: flex;" *ngFor="let item of filterPokemons">
                 <mat-card
-                    style="flex: 1; margin-right: 5px; margin-left: 5px; background-color: #F4F3F3; height: 80%; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 30vh;">
+                    style="flex: 1; margin-right: 5px; margin-left: 5px; background-color: #F4F3F3; height: 80%; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 30vh;" (click)="navigate(item)">
                     <mat-card-title-group style="display: flex; justify-content: center;">
                         <mat-card-title>{{ item.name.charAt(0).toUpperCase() + item.name.slice(1) }}</mat-card-title>
 
@@ -55,9 +55,9 @@
         </mat-grid-list>
         <div style="display: flex; justify-content:center; align-items: center; margin: 30px;">
             <button mat-button (click)="chamar()"
-                style="padding: 20px; border-radius: 20px; border: none; color: white; background-color: #C31C1C;">more</button>
+                style="padding: 20px; border-radius: 20px; border: none; color: white; background-color: #C31C1C; font-size: 20px;">More</button>
             <a href="#"
-                style="padding: 18px; border-radius: 20px; border: none; color: white;; background-color: #C31C1C; text-decoration: none; margin-left: 60px;">top</a>
+                style="padding: 20px; border-radius: 20px; border: none; color: white;; background-color: #C31C1C; text-decoration: none; margin-left: 60px; font-size: 20px;">Top</a>
         </div>
     </div>
 </div>

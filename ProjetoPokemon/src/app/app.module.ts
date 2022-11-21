@@ -22,6 +22,7 @@ import { PokemonComponent } from './components/pokemons/pokemon/pokemon.componen
 import { BodyComponent } from './components/template/body/body.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
+import { FeaturesComponent } from './components/pokemons/features/features.component';
 
 @NgModule({
   imports: [
@@ -48,7 +49,8 @@ import { MatIconModule } from '@angular/material/icon';
     HeaderComponent,
     BodyComponent,
     PokemonComponent,
-    FooterComponent
+    FooterComponent,
+    FeaturesComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

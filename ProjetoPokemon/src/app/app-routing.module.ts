@@ -1,11 +1,16 @@
+import { FeaturesComponent } from './components/pokemons/features/features.component';
 import { PokemonComponent } from './components/pokemons/pokemon/pokemon.component';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: "pokemon",
+    path: "",
     component: PokemonComponent
+  },
+  {
+    path: "feature/:id",
+    component: FeaturesComponent
   }
 ];
 

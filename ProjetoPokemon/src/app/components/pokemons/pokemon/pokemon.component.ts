@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { PokemonService } from './pokemon.service';
 import { Pokemon } from './pokemon.modal';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon',
@@ -40,7 +41,8 @@ export class PokemonComponent implements OnInit {
 
   img: string = ''
 
-  constructor(private service: PokemonService) {
+  constructor(private service: PokemonService, private router: Router) {
+    
   }
 
   ngOnInit(): void {
@@ -70,5 +72,9 @@ export class PokemonComponent implements OnInit {
         })
       }
     })
+  }
+
+  navigate(param: Pokemon){
+    this.router.navigate([`feature/${param.id}`]);
   }
 }
