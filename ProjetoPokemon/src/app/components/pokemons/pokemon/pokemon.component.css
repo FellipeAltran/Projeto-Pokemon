@@ -24,6 +24,8 @@
     text-decoration: none;
     margin: 40px;
     padding: 0;
+    border: solid 5px gray;
+    border-radius: 10px;
 }
 
 ::ng-deep .mat-form-field-underline {
