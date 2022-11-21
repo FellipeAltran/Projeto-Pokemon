@@ -54,9 +54,11 @@ export class PokemonComponent implements OnInit {
       })
 
     }
+    this.filterPokemons = this.pokemons
   }
 
   filter() {
+    if (!this.selectedValue) { this.chamar(); return; }
     this.filterPokemons = []
     this.service.getAllbyType(this.selectedValue).subscribe((response) => {
       console.log(response)

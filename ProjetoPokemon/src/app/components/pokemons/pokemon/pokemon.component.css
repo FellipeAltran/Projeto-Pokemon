@@ -25,13 +25,12 @@
     margin: 40px;
     padding: 0;
 }
-/* 
-mat-grid-tile {
-    background: #D7D6D6;
-} */
 
-/* .mat-grid-tile-content {
-    min-height: 250px;
-    justify-content: start;
-    align-items: flex-start;
-} */
+::ng-deep .mat-form-field-underline {
+    display: none;
+    padding-bottom: 0;
+}
+
+::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 0;
+}

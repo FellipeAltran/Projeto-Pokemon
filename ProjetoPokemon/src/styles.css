@@ -1,7 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0;  }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
 * {
     font-family: 'VT323', monospace;
+}
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+    width: 6px;
+    width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+    border-radius: 20px;
+    background-color: #EDF1F2;
+}
+
+*::-webkit-scrollbar-track:hover {
+    background-color: #CDD5D8;
+}
+
+*::-webkit-scrollbar-track:active {
+    background-color: #C9D2D4;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    background-color: #C31C1C;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #C31C1C;
+}
+
+*::-webkit-scrollbar-thumb:active {
+    background-color: #C31C1C;
 }
