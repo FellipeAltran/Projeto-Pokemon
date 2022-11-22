@@ -1,7 +1,9 @@
 .example-card {
+
   display: flex;
   height: 70%;
   max-width: 800px;
+  min-width: 600px;
   background-color: #F4F3F3;
   border-radius: 30px;
   border: solid 5px gray;
