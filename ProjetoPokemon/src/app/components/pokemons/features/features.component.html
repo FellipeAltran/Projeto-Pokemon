@@ -1,20 +1,51 @@
-<div style="display: flex; height: 100%; justify-content: center; align-items: center;">
+<div style="height: 100%; display: flex; justify-content: center; align-items: center; ">
+
     <mat-card class="example-card">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Shiba Inu</mat-card-title>
-            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-        <mat-card-content>
-            <div>
-                <span>habilidade 1</span>
-                <p>
-                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                    bred for hunting.
-                </p>
+        <div>
+            <mat-card-header style="display: flex; justify-content: center; align-items: center;">
+                <mat-card-title style="font-size: 50px; margin: 15px; margin-bottom: 25px;"> {{
+                    pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) }} </mat-card-title>
+                <mat-card-subtitle></mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                <img mat-card-image src="{{ pokemon.sprites.front_default }}" style="height: 400px; width: 400px;">
+            </mat-card-content>
+            <mat-card-content>
+                <div style="justify-content: center; display: flex;">
+                    <div *ngFor="let type of pokemon.types" style="padding-right: 30px;">
+                        <p [ngStyle]="{'background-color': (type.type.name === 'fire') ? 'red' : 
+                                              ((type.type.name === 'water') ? 'blue' : 
+                                              ((type.type.name === 'grass') ? '#a4d541' :
+                                              ((type.type.name === 'flying') ? '#bdbde6' :
+                                              ((type.type.name === 'poison') ? '#a44a8b' :
+                                              ((type.type.name === 'normal') ? '#e6bd62' :
+                                              ((type.type.name === 'electric') ? '#f6bd20' : 
+                                              ((type.type.name === 'bug') ? '#6ad531' : 
+                                              ((type.type.name === 'ice') ? '#94c5ff' : 
+                                              ((type.type.name === 'fighting') ? '#bd314a' :
+                                              ((type.type.name === 'ground') ? '#b48310' :
+                                              ((type.type.name === 'psychic') ? '#ff5a6a' :
+                                              ((type.type.name === 'rock') ? '#524a4a' :
+                                              ((type.type.name === 'ghost') ? '#8b6283' :
+                                              ((type.type.name === 'dragon') ? '#ee9c39' :
+                                              ((type.type.name === 'dark') ? '#29314a' :
+                                              ((type.type.name === 'steel') ? '#8b8b8b' :
+                                              ((type.type.name === 'fairy') ? '#ffacac' : null)))))))))))))))))}"
+                            style="color: white; margin: 0; padding: 10px; border-radius: 20px; min-width: 50px; text-align: center; font-size: 23px; ">
+                            {{ type.type.name }}
+                        </p>
+                    </div>
+                </div>
+            </mat-card-content>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <mat-card-content>
+                    <p style="font-size: 25px;">Habilidades</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis nulla est dolore enim maxime
+                        corrupti
+                        vero fugit quae et, qui sint earum quidem quas iusto aliquam ut omnis eligendi distinctio.</p>
+                </mat-card-content>
             </div>
-        </mat-card-content>
+        </div>
     </mat-card>
+
 </div>
