@@ -5,23 +5,25 @@
                 <mat-label>Pokemons</mat-label>
                 <mat-select [(ngModel)]="selectedValue" name="food" (selectionChange)="filter()">
                     <mat-option>All</mat-option>
-                    <mat-option *ngFor="let tipo of tipos" [value]="tipo">{{ tipo.charAt(0).toUpperCase() + tipo.slice(1) }}</mat-option>
+                    <mat-option *ngFor="let tipo of tipos" [value]="tipo">{{ tipo.charAt(0).toUpperCase() +
+                        tipo.slice(1) }}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
 
-        <mat-grid-list cols="3" rowHeight="1:1">
+        <mat-grid-list cols="3" rowHeight="1:1" [cols]="mybreakpoint" (window:resize)="handleSize($event)">
             <mat-grid-tile style="display: flex;" *ngFor="let item of filterPokemons">
                 <mat-card
-                    style="flex: 1; margin-right: 5px; margin-left: 5px; background-color: #F4F3F3; height: 80%; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 30vh;  border: solid 5px grey; border-radius: 15px;" (click)="navigate(item)">
+                    style="flex: 1; margin-right: 5px; margin-left: 5px; background-color: #F4F3F3; height: 80%; display: flex; justify-content: center; align-items: center; flex-direction: column; min-height: 20vh;  border: solid 5px grey; border-radius: 15px;"
+                    (click)="navigate(item)">
                     <mat-card-title-group style="display: flex; justify-content: center;">
                         <mat-card-title>{{ item.name.charAt(0).toUpperCase() + item.name.slice(1) }}</mat-card-title>
 
                     </mat-card-title-group>
                     <mat-card-content
                         style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-                        <img style="max-height: 130px; max-width: 130px; padding: 30px;" mat-card-lg-image
-                            src="{{ item.sprites.front_default }}">
+                        <img style="max-height: 130px; max-width: 130px; padding: 30px; min-height: 50px; min-width: 50px;"
+                            mat-card-lg-image src="{{ item.sprites.front_default }}">
 
                         <div style="justify-content: center; display: flex;">
                             <div *ngFor="let type of item.types">

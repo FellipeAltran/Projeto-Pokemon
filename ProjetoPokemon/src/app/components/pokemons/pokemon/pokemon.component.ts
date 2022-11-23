@@ -33,47 +33,61 @@ export class PokemonComponent implements OnInit {
     'fairy'
   ];
 
-  selectedValue: string = ""
+  selectedValue: string = "";
+
+  valorNome: string = "";
 
 
   pokemons: Array<Pokemon> = [];
   filterPokemons: Array<Pokemon> = [];
 
-  img: string = ''
+  img: string = '';
+
+  mybreakpoint: number = 0;
 
   constructor(private service: PokemonService, private router: Router) {
-    
+
   }
 
   ngOnInit(): void {
-    this.chamar()
+    this.mybreakpoint = (window.innerWidth <= 600) ? 1 : (window.innerWidth <= 800) ? 2: 3;
+    this.chamar();
   }
+  handleSize(event: any) {
+    this.mybreakpoint = (event.target.innerWidth <= 600) ? 1 : (window.innerWidth <= 800) ? 2: 3;
+  }  
 
-  chamar() {
-    for (let index = this.pokemons.length; index < this.pokemons.length + 6; index++) {
-      this.service.readyById((index + 1).toString()).subscribe((pokemon) => {
-        this.pokemons[index] = pokemon;
-      })
-
-    }
-    this.filterPokemons = this.pokemons
-  }
-
-  filter() {
-    if (!this.selectedValue) { this.chamar(); return; }
-    this.filterPokemons = []
-    this.service.getAllbyType(this.selectedValue).subscribe((response) => {
-      const pokemonNames = response.pokemon.map((p) => p.pokemon.name);
-
-      for (const pokename of pokemonNames) {
-        this.service.readyById(pokename).subscribe((pokemon) => {
-          this.filterPokemons.push(pokemon);
-        })
-      }
+chamar() {
+  for (let index = this.pokemons.length; index < this.pokemons.length + 6; index++) {
+    this.service.readyById((index + 1).toString()).subscribe((pokemon) => {
+      this.pokemons[index] = pokemon;
     })
-  }
 
-  navigate(param: Pokemon){
-    this.router.navigate([`feature/${param.id}`]);
   }
+  this.filterPokemons = this.pokemons
+}
+
+filter() {
+  if (!this.selectedValue) { this.chamar(); return; }
+  this.filterPokemons = []
+  this.service.getAllbyType(this.selectedValue).subscribe((response) => {
+    const pokemonNames = response.pokemon.map((p) => p.pokemon.name);
+
+    for (const pokename of pokemonNames) {
+      this.service.readyById(pokename).subscribe((pokemon) => {
+        this.filterPokemons.push(pokemon);
+      })
+    }
+  })
+}
+
+filterName(){
+  this.service.getByName(this.valorNome).subscribe((nomenclatura) => {
+    const nome = nomenclatura
+  })
+}
+
+navigate(param: Pokemon){
+  this.router.navigate([`feature/${param.id}`]);
+}
 }

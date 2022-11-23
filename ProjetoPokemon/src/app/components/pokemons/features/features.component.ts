@@ -45,6 +45,7 @@ export class FeaturesComponent implements OnInit {
       this.pokemon.abilities.map(e => {
         this.http.get<any>(e.ability.url).subscribe(param => {
           e.description = param.effect_entries.find((e: any) => e.language.name == 'en').effect;
+          e.shortDescription = param.effect_entries.find((e: any) => e.language.name == 'en').short_effect;
         });
       });
 

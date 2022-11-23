@@ -26,4 +26,11 @@ export class PokemonService {
         return this.http.get<any>(url).pipe(map(obj => obj),
         )
     }
+
+    getByName(name: string): Observable<Pokemon> {
+        const url = `${this.baseUrl}/pokemon/${name}`
+        return this.http.get<any>(url).pipe(
+            map(obj => obj),
+        )
+    }
 }

@@ -2,10 +2,9 @@
 
     <mat-card class="example-card">
         <div>
-            <mat-card-header style="display: flex; justify-content: center; align-items: center;">
-                <mat-card-title style="font-size: 50px; margin: 15px; margin-bottom: 25px;"> {{
-                    pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) }} </mat-card-title>
-                <mat-card-subtitle></mat-card-subtitle>
+            <mat-card-header style="display: flex; justify-content: center; align-items: center; margin-bottom: 40px;">
+                <mat-card-title style="font-size: 50px; margin: 15px;">
+                    {{ pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1) }} </mat-card-title>
             </mat-card-header>
             <mat-card-content
                 style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
@@ -32,26 +31,44 @@
                                               ((type.type.name === 'dark') ? '#29314a' :
                                               ((type.type.name === 'steel') ? '#8b8b8b' :
                                               ((type.type.name === 'fairy') ? '#ffacac' : null)))))))))))))))))}"
-                            style="color: white; margin: 0; padding: 10px; border-radius: 20px; min-width: 50px; text-align: center; font-size: 23px; ">
+                            style="color: white; margin: 0; padding: 10px; border-radius: 20px; min-width: 50px; text-align: center; font-size: 23px; margin-bottom: 20px;">
                             {{ type.type.name }}
                         </p>
                     </div>
                 </div>
             </mat-card-content>
             <div style="justify-content: center; align-items: center;">
-                <mat-card-content>
-                    <p style="font-size: 25px;">Habilidades</p>
+                <p style="font-size: 35px; margin-bottom: 40px;">Abilities</p>
+                <mat-card-content style="overflow-y: scroll; height: 350px; margin-bottom: 10px;">
                     <div *ngFor="let item of pokemon.abilities" style=" width: 100%;">
-                        <div style="background-color: purple;">
-                        <p
-                            style="width: 25%;font-size: 15px; justify-content: center;align-items: center; border: solid 3px black; background-color: red; color: #fff; min-width: 20%; border-radius: 30px; padding: 5px;">
-                            {{ item.ability.name.charAt(0).toUpperCase() + item.ability.name.slice(1) }} </p>
-                            <p>{{item.description}}</p>
+                        <div style="background-color: #F4F3F3; padding: 15px; margin-bottom: 5px;">
+                            <p [ngStyle]="{'background-color': (pokemon.types[0].type.name === 'fire') ? 'red' : 
+                                              ((pokemon.types[0].type.name === 'water') ? 'blue' : 
+                                              ((pokemon.types[0].type.name === 'grass') ? '#a4d541' :
+                                              ((pokemon.types[0].type.name === 'flying') ? '#bdbde6' :
+                                              ((pokemon.types[0].type.name === 'poison') ? '#a44a8b' :
+                                              ((pokemon.types[0].type.name === 'normal') ? '#e6bd62' :
+                                              ((pokemon.types[0].type.name === 'electric') ? '#f6bd20' : 
+                                              ((pokemon.types[0].type.name === 'bug') ? '#6ad531' : 
+                                              ((pokemon.types[0].type.name === 'ice') ? '#94c5ff' : 
+                                              ((pokemon.types[0].type.name === 'fighting') ? '#bd314a' :
+                                              ((pokemon.types[0].type.name === 'ground') ? '#b48310' :
+                                              ((pokemon.types[0].type.name === 'psychic') ? '#ff5a6a' :
+                                              ((pokemon.types[0].type.name === 'rock') ? '#524a4a' :
+                                              ((pokemon.types[0].type.name === 'ghost') ? '#8b6283' :
+                                              ((pokemon.types[0].type.name === 'dragon') ? '#ee9c39' :
+                                              ((pokemon.types[0].type.name === 'dark') ? '#29314a' :
+                                              ((pokemon.types[0].type.name === 'steel') ? '#8b8b8b' :
+                                              ((pokemon.types[0].type.name === 'fairy') ? '#ffacac' : null)))))))))))))))))}"
+                                style="width: 25%; font-size: 25px;display: flex; justify-content: center;align-items: center; color: #fff; min-width: 20%; border-radius: 30px; padding: 5px;">
+                                {{ item.ability.name.charAt(0).toUpperCase() + item.ability.name.slice(1) }} </p>
+                            <p style="font-size: 22px;">{{item.description}}</p>
+                            <p style="font-size: 18px;">{{item.shortDescription}}</p>
+                        </div>
                     </div>
+                </mat-card-content>
             </div>
-            </mat-card-content>
         </div>
-</div>
-</mat-card>
+    </mat-card>
 
 </div>
