@@ -63,7 +63,6 @@ export class PokemonComponent implements OnInit {
     if (!this.selectedValue) { this.chamar(); return; }
     this.filterPokemons = []
     this.service.getAllbyType(this.selectedValue).subscribe((response) => {
-      console.log(response)
       const pokemonNames = response.pokemon.map((p) => p.pokemon.name);
 
       for (const pokename of pokemonNames) {

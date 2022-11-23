@@ -1,12 +1,14 @@
 .example-card {
+  margin-top: 25px;
   display: flex;
-  height: 70%;
+  height: 90%;
   max-width: 800px;
   background-color: #F4F3F3;
   border-radius: 30px;
   border: solid 5px gray;
   justify-content: center;
-  align-items: center
+  align-items: center;
+  min-width: 600px;
 }
 
 .example-header-image {
