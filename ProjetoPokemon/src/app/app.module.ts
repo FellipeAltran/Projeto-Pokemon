@@ -23,6 +23,7 @@ import { BodyComponent } from './components/template/body/body.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
 import { FeaturesComponent } from './components/pokemons/features/features.component';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   imports: [
@@ -42,7 +43,9 @@ import { FeaturesComponent } from './components/pokemons/features/features.compo
     MatFormFieldModule,
     MatOptionModule,
     MatSelectModule,
-    MatIconModule 
+    MatIconModule,
+    MatInputModule
+     
   ],
   declarations: [
     AppComponent,

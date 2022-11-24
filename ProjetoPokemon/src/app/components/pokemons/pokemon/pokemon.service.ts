@@ -15,7 +15,7 @@ export class PokemonService {
     constructor(private http: HttpClient) { }
 
     readyById(id: string): Observable<Pokemon> {
-        const url = `${this.baseUrl}/pokemon/${id}`
+        const url = `${this.baseUrl}/pokemon/${id.toLowerCase()}`
         return this.http.get<any>(url).pipe(
             map(obj => obj),
         )
@@ -24,13 +24,6 @@ export class PokemonService {
     getAllbyType(nameType: string, limit: number = 6, offset: number = 0): Observable<PokemonType> {
         const url = `${this.baseUrl}/type/${nameType}/?limit=${limit}&offset=${offset}`
         return this.http.get<any>(url).pipe(map(obj => obj),
-        )
-    }
-
-    getByName(name: string): Observable<Pokemon> {
-        const url = `${this.baseUrl}/pokemon/${name}`
-        return this.http.get<any>(url).pipe(
-            map(obj => obj),
         )
     }
 }

@@ -7,7 +7,8 @@
 }
 
 .centro {
-    margin-top: 40px;
+    margin-top: 80px;
+    margin-bottom: 80px;
     align-items: center;
     justify-content: center;
     display: flex;
@@ -20,13 +21,10 @@
     height: 100%;
 }
 
-.filtro {
-    width: 400px;
+.filtros {
+    display: flex;
+    justify-content: space-between;
     text-decoration: none;
-    margin: 40px;
-    padding: 0;
-    border: solid 5px gray;
-    border-radius: 10px;
 }
 
 ::ng-deep .mat-form-field-underline {
@@ -37,3 +35,4 @@
 ::ng-deep .mat-form-field-wrapper {
     padding-bottom: 0;
 }
+

@@ -1,14 +1,25 @@
 <div class="container">
     <div class="box">
         <div class="centro">
-            <mat-form-field appearance="fill" class="filtro">
-                <mat-label>Pokemons</mat-label>
-                <mat-select [(ngModel)]="selectedValue" name="food" (selectionChange)="filter()">
-                    <mat-option>All</mat-option>
-                    <mat-option *ngFor="let tipo of tipos" [value]="tipo">{{ tipo.charAt(0).toUpperCase() +
-                        tipo.slice(1) }}</mat-option>
-                </mat-select>
-            </mat-form-field>
+            <form class="example-form">
+                <div class="filtros">          
+                        <mat-form-field appearance="fill"
+                            style="padding: 0; border: solid 5px gray; border-radius: 10px; width: 350px; margin-right: 30px;">
+                            <mat-label>Types</mat-label>
+                            <mat-select [(ngModel)]="selectedValue" name="food" (selectionChange)="filter()">
+                                <mat-option style="font-size: 17px">All</mat-option>
+                                <mat-option *ngFor="let tipo of tipos" [value]="tipo" style="font-size: 17px;">{{ tipo.charAt(0).toUpperCase() +
+                                    tipo.slice(1) }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill"
+                            style="padding: 0; border: solid 5px gray; border-radius: 10px; width: 350px;">
+                            <mat-label>Pokemon</mat-label>
+                            <input matInput name="filter" (keyup.enter)="verificador($event)" [(ngModel)] = "name">
+                        </mat-form-field>
+                </div>
+
+            </form>
         </div>
 
         <mat-grid-list cols="3" rowHeight="1:1" [cols]="mybreakpoint" (window:resize)="handleSize($event)">
@@ -57,9 +68,9 @@
         </mat-grid-list>
         <div style="display: flex; justify-content:center; align-items: center; margin: 30px;">
             <button mat-button (click)="chamar()"
-                style="padding: 20px; border-radius: 20px; border: none; color: white; background-color: #C31C1C; font-size: 20px;">More</button>
+                style="display: flex; justify-content: center; align-items: center; padding: 20px; border-radius: 20px; border: none; color: white; background-color: #C31C1C; margin-right: 30px; font-size: 20px; border: solid 3px #770000;">More</button>
             <a href="#"
-                style="padding: 20px; border-radius: 20px; border: none; color: white;; background-color: #C31C1C; text-decoration: none; margin-left: 60px; font-size: 20px;">Top</a>
+                style="display: flex; justify-content: center; align-items: center; padding: 20px; border-radius: 20px; border: none; color: white; background-color: #C31C1C; text-decoration: none; margin-left: 30px; font-size: 20px; border: solid 3px #770000; width: 30px;">Top</a>
         </div>
     </div>
 </div>

@@ -8,7 +8,7 @@
             </mat-card-header>
             <mat-card-content
                 style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-                <img mat-card-image src="{{ pokemon.sprites.front_default }}" style="height: 350px; width: 350px;">
+                <img mat-card-image src="{{ pokemon.sprites.front_default }}" style="height: 300px; width: 300px;">
             </mat-card-content>
             <mat-card-content>
                 <div style="justify-content: center; display: flex;">
@@ -38,10 +38,10 @@
                 </div>
             </mat-card-content>
             <div style="justify-content: center; align-items: center;">
-                <p style="font-size: 35px; margin-bottom: 40px;">Abilities</p>
-                <mat-card-content style="overflow-y: scroll; height: 350px; margin-bottom: 10px;">
+                <p style="font-size: 35px; margin-bottom: 30px;">Abilities</p>
+                <mat-card-content style="overflow-y: scroll; height: 300px;">
                     <div *ngFor="let item of pokemon.abilities" style=" width: 100%;">
-                        <div style="background-color: #F4F3F3; padding: 15px; margin-bottom: 5px;">
+                        <div style="background-color: #F4F3F3; margin-bottom: 5px;">
                             <p [ngStyle]="{'background-color': (pokemon.types[0].type.name === 'fire') ? 'red' : 
                                               ((pokemon.types[0].type.name === 'water') ? 'blue' : 
                                               ((pokemon.types[0].type.name === 'grass') ? '#a4d541' :
