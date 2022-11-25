@@ -1,9 +1,12 @@
 import { EMPTY } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Component, ErrorHandler, OnInit } from '@angular/core';
 
 import { PokemonService } from './pokemon.service';
 import { Pokemon } from './pokemon.modal';
 import { Router } from '@angular/router';
+import { paleta, subPaleta } from '../../uteis';
+
+
 
 @Component({
   selector: 'app-pokemon',
@@ -86,7 +89,7 @@ export class PokemonComponent implements OnInit {
   verificador(event: any) {
     if (event.keyCode == 13) {
       if (this.name == '') {
-        console.log('asdadas');
+        this.service.errorHandler();
       } else {
         this.service.readyById(this.name).subscribe((p) => {
           this.pokemon = p;
@@ -97,6 +100,16 @@ export class PokemonComponent implements OnInit {
       }
     }
 
+  }
+
+  getPaleta(name: string){
+    return paleta(name);
+  }
+
+  getSubPaleta(name: string){
+    const a = 'solid ';
+    const b = '3px ';
+    return a + b + subPaleta(name);
   }
 
   navigate(param: Pokemon) {

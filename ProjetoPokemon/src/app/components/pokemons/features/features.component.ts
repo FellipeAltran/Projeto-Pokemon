@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { FeatureService } from './feature.service';
 import { HttpClient } from '@angular/common/http';
+import { paleta, subPaleta } from '../../uteis';
 
 @Component({
   selector: 'app-features',
@@ -55,4 +56,15 @@ export class FeaturesComponent implements OnInit {
   ngOnInit(): void {
     
   }
+
+  getPaleta(name: string){
+    return paleta(name);
+  }
+
+  getSubPaleta(name: string){
+    const a = 'solid ';
+    const b = '3px '
+    return a + b + subPaleta(name);
+  }
+
 }

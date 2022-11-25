@@ -1,4 +1,4 @@
-<div style="height: 100%; display: flex; justify-content: center; align-items: center; " *ngIf="pokemon">
+<div style="display: flex; justify-content: center; align-items: center; " *ngIf="pokemon">
 
     <mat-card class="example-card">
         <div>
@@ -8,30 +8,13 @@
             </mat-card-header>
             <mat-card-content
                 style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-                <img mat-card-image src="{{ pokemon.sprites.front_default }}" style="height: 300px; width: 300px;">
+                <img mat-card-image src="{{ pokemon.sprites.front_default }}" style="height: 300px; width: 300px; image-rendering: pixelated;">
             </mat-card-content>
             <mat-card-content>
                 <div style="justify-content: center; display: flex;">
                     <div *ngFor="let type of pokemon.types" style="padding-right: 30px;">
-                        <p [ngStyle]="{'background-color': (type.type.name === 'fire') ? 'red' : 
-                                              ((type.type.name === 'water') ? 'blue' : 
-                                              ((type.type.name === 'grass') ? '#a4d541' :
-                                              ((type.type.name === 'flying') ? '#bdbde6' :
-                                              ((type.type.name === 'poison') ? '#a44a8b' :
-                                              ((type.type.name === 'normal') ? '#e6bd62' :
-                                              ((type.type.name === 'electric') ? '#f6bd20' : 
-                                              ((type.type.name === 'bug') ? '#6ad531' : 
-                                              ((type.type.name === 'ice') ? '#94c5ff' : 
-                                              ((type.type.name === 'fighting') ? '#bd314a' :
-                                              ((type.type.name === 'ground') ? '#b48310' :
-                                              ((type.type.name === 'psychic') ? '#ff5a6a' :
-                                              ((type.type.name === 'rock') ? '#524a4a' :
-                                              ((type.type.name === 'ghost') ? '#8b6283' :
-                                              ((type.type.name === 'dragon') ? '#ee9c39' :
-                                              ((type.type.name === 'dark') ? '#29314a' :
-                                              ((type.type.name === 'steel') ? '#8b8b8b' :
-                                              ((type.type.name === 'fairy') ? '#ffacac' : null)))))))))))))))))}"
-                            style="color: white; margin: 0; padding: 10px; border-radius: 20px; min-width: 50px; text-align: center; font-size: 23px; margin-bottom: 20px;">
+                        <p [ngStyle]="{'background-color': getPaleta(type.type.name), 'border': getSubPaleta(type.type.name)}"
+                            style="color: #fff; margin: 0; padding: 10px; border-radius: 20px; min-width: 50px; text-align: center; font-size: 23px; margin-bottom: 20px;">
                             {{ type.type.name }}
                         </p>
                     </div>
@@ -39,27 +22,10 @@
             </mat-card-content>
             <div style="justify-content: center; align-items: center;">
                 <p style="font-size: 35px; margin-bottom: 30px;">Abilities</p>
-                <mat-card-content style="overflow-y: scroll; height: 300px;">
+                <mat-card-content>
                     <div *ngFor="let item of pokemon.abilities" style=" width: 100%;">
                         <div style="background-color: #F4F3F3; margin-bottom: 5px;">
-                            <p [ngStyle]="{'background-color': (pokemon.types[0].type.name === 'fire') ? 'red' : 
-                                              ((pokemon.types[0].type.name === 'water') ? 'blue' : 
-                                              ((pokemon.types[0].type.name === 'grass') ? '#a4d541' :
-                                              ((pokemon.types[0].type.name === 'flying') ? '#bdbde6' :
-                                              ((pokemon.types[0].type.name === 'poison') ? '#a44a8b' :
-                                              ((pokemon.types[0].type.name === 'normal') ? '#e6bd62' :
-                                              ((pokemon.types[0].type.name === 'electric') ? '#f6bd20' : 
-                                              ((pokemon.types[0].type.name === 'bug') ? '#6ad531' : 
-                                              ((pokemon.types[0].type.name === 'ice') ? '#94c5ff' : 
-                                              ((pokemon.types[0].type.name === 'fighting') ? '#bd314a' :
-                                              ((pokemon.types[0].type.name === 'ground') ? '#b48310' :
-                                              ((pokemon.types[0].type.name === 'psychic') ? '#ff5a6a' :
-                                              ((pokemon.types[0].type.name === 'rock') ? '#524a4a' :
-                                              ((pokemon.types[0].type.name === 'ghost') ? '#8b6283' :
-                                              ((pokemon.types[0].type.name === 'dragon') ? '#ee9c39' :
-                                              ((pokemon.types[0].type.name === 'dark') ? '#29314a' :
-                                              ((pokemon.types[0].type.name === 'steel') ? '#8b8b8b' :
-                                              ((pokemon.types[0].type.name === 'fairy') ? '#ffacac' : null)))))))))))))))))}"
+                            <p  [ngStyle]="{'background-color': getPaleta(pokemon.types[0].type.name), 'border': getSubPaleta(pokemon.types[0].type.name)}"
                                 style="width: 25%; font-size: 25px;display: flex; justify-content: center;align-items: center; color: #fff; min-width: 20%; border-radius: 30px; padding: 5px;">
                                 {{ item.ability.name.charAt(0).toUpperCase() + item.ability.name.slice(1) }} </p>
                             <p style="font-size: 22px;">{{item.description}}</p>

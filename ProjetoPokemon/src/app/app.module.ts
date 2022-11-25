@@ -24,6 +24,7 @@ import { FooterComponent } from './components/template/footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
 import { FeaturesComponent } from './components/pokemons/features/features.component';
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   imports: [
@@ -44,7 +45,8 @@ import { MatInputModule } from '@angular/material/input';
     MatOptionModule,
     MatSelectModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule
      
   ],
   declarations: [
