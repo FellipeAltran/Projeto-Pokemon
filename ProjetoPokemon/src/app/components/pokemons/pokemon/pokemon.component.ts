@@ -69,7 +69,7 @@ export class PokemonComponent implements OnInit {
       })
 
     }
-    this.filterPokemons = this.pokemons
+    this.filterPokemons = this.pokemons;
   }
 
   filter() {
@@ -87,26 +87,24 @@ export class PokemonComponent implements OnInit {
   }
 
   verificador(event: any) {
-    if (event.keyCode == 13) {
-      if (this.name == '') {
-        this.service.errorHandler();
-      } else {
-        this.service.readyById(this.name).subscribe((p) => {
-          this.pokemon = p;
-          this.navigate(this.pokemon);
-        },(error) => {
-          console.log(error);
-        })
-      }
-    }
 
+    if (event.keyCode != 13) return;
+    if (this.name == '') return this.service.errorHandler();
+      this.service.readyById(this.name).subscribe((p) => {
+        this.pokemon = p;
+        this.navigate(this.pokemon);
+      }, () => {
+        this.service.errorHandler()
+      })
+    
+    return
   }
 
-  getPaleta(name: string){
+  getPaleta(name: string) {
     return paleta(name);
   }
 
-  getSubPaleta(name: string){
+  getSubPaleta(name: string) {
     const a = 'solid ';
     const b = '3px ';
     return a + b + subPaleta(name);

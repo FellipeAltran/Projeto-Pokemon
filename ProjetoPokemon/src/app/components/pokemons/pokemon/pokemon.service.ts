@@ -32,8 +32,7 @@ export class PokemonService {
         this.snackBar.open(msg, '', {
             duration: 2000,
             horizontalPosition: "right",
-            verticalPosition: "top",
-            panelClass: isError ? ['msg-error'] : ['msg-success']
+            verticalPosition: "top"
         })
     }
 
