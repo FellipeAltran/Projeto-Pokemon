@@ -6,7 +6,7 @@
                         <mat-form-field appearance="fill"
                             style="padding: 0; border: solid 5px gray; border-radius: 10px; width: 350px; margin-right: 30px;">
                             <mat-label>Types</mat-label>
-                            <mat-select [(ngModel)]="selectedValue" name="food" (selectionChange)="filter()">
+                            <mat-select [(ngModel)]="selectedValue" name="food" (selectionChange)="setFilterAndSave()">
                                 <mat-option style="font-size: 17px">All</mat-option>
                                 <mat-option *ngFor="let tipo of tipos" [value]="tipo" style="font-size: 17px;">{{ tipo.charAt(0).toUpperCase() +
                                     tipo.slice(1) }}</mat-option>

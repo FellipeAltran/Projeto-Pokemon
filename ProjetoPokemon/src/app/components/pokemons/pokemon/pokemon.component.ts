@@ -56,13 +56,19 @@ export class PokemonComponent implements OnInit {
 
   ngOnInit(): void {
     this.mybreakpoint = (window.innerWidth <= 600) ? 1 : (window.innerWidth <= 800) ? 2 : 3;
-    this.chamar();
+
+    this.selectedValue = sessionStorage.getItem('type') || "";
+
+    if (!this.selectedValue) this.chamar();
+    else this.filter();
   }
+
   handleSize(event: any) {
     this.mybreakpoint = (event.target.innerWidth <= 600) ? 1 : (window.innerWidth <= 800) ? 2 : 3;
   }
 
   chamar() {
+    console.log("camou")
     for (let index = this.pokemons.length; index < this.pokemons.length + 6; index++) {
       this.service.readyById((index + 1).toString()).subscribe((pokemon) => {
         this.pokemons[index] = pokemon;
@@ -72,10 +78,24 @@ export class PokemonComponent implements OnInit {
     this.filterPokemons = this.pokemons;
   }
 
+  setFilter() {
+    if (!this.selectedValue) return sessionStorage.removeItem("type")
+
+    sessionStorage.setItem('type', this.selectedValue);
+  }
+
+  setFilterAndSave() {
+    this.setFilter();
+    this.filter();
+  }
+
   filter() {
-    if (!this.selectedValue) { this.chamar(); return; }
+    const type = sessionStorage.getItem('type')
+    if (!type) return  this.chamar();
+
     this.filterPokemons = []
-    this.service.getAllbyType(this.selectedValue).subscribe((response) => {
+
+    this.service.getAllbyType(type).subscribe((response) => {
       const pokemonNames = response.pokemon.map((p) => p.pokemon.name);
 
       for (const pokename of pokemonNames) {
@@ -90,13 +110,13 @@ export class PokemonComponent implements OnInit {
 
     if (event.keyCode != 13) return;
     if (this.name == '') return this.service.errorHandler();
-      this.service.readyById(this.name).subscribe((p) => {
-        this.pokemon = p;
-        this.navigate(this.pokemon);
-      }, () => {
-        this.service.errorHandler()
-      })
-    
+    this.service.readyById(this.name).subscribe((p) => {
+      this.pokemon = p;
+      this.navigate(this.pokemon);
+    }, () => {
+      this.service.errorHandler()
+    })
+
     return
   }
 
